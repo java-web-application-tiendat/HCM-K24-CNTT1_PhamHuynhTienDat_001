@@ -13,7 +13,6 @@ public class BookService {
     private final List<Book> bookList = new ArrayList<>();
 
     public BookService() {
-        // dữ liệu mẫu để test
         bookList.add(new Book(1L, "Java Basics", "Nguyen Van A", 10, "https://via.placeholder.com/80"));
         bookList.add(new Book(2L, "Spring Boot", "Tran Thi B", 5, "https://via.placeholder.com/80"));
     }
