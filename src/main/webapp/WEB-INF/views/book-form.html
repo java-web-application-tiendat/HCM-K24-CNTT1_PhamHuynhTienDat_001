@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm/Sửa sách</title>
+</head>
+<body>
+<h1 th:text="${#fields.hasErrors('*') ? 'Có lỗi nhập liệu' : 'Thông tin sách'}"></h1>
+
+<form th:action="@{/books/save}" th:object="${book}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+
+    <label>Tiêu đề:</label>
+    <input type="text" th:field="*{title}"/>
+    <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+    <br/>
+
+    <label>Tác giả:</label>
+    <input type="text" th:field="*{author}"/>
+    <span th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></span>
+    <br/>
+
+    <label>Số lượng:</label>
+    <input type="number" th:field="*{quantity}"/>
+    <br/>
+
+    <label>Ảnh bìa (URL):</label>
+    <input type="text" th:field="*{coverImage}"/>
+    <br/>
+
+    <button type="submit">Lưu</button>
+</form>
+
+<a th:href="@{/books}">Quay lại danh sách</a>
+</body>
+</html>
